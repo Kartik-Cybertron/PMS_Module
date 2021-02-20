@@ -51,6 +51,7 @@ namespace PMS_Module2
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Employee Successfully Added");
                 con.Close();
+                populate();
             }
         }
 
@@ -92,6 +93,13 @@ namespace PMS_Module2
                 con.Close();
                 populate();
             }
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            HomeForm form = new HomeForm();
+            form.Show();
+            this.Hide();
         }
     }
 }

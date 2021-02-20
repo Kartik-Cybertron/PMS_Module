@@ -45,6 +45,7 @@ namespace PMS_Module2
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Company Successfully Added");
                 con.Close();
+                populate();
             }
         }
 
@@ -88,6 +89,13 @@ namespace PMS_Module2
             txt_cmpny_name.Text = CompanyDataGridView.SelectedRows[0].Cells[1].Value.ToString();
             txt_cmpny_phn.Text = CompanyDataGridView.SelectedRows[0].Cells[2].Value.ToString();
             txt_cmpny_addr.Text = CompanyDataGridView.SelectedRows[0].Cells[3].Value.ToString();
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            HomeForm form = new HomeForm();
+            form.Show();
+            this.Hide();
         }
     }
 }

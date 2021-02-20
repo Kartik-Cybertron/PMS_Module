@@ -71,6 +71,7 @@
             this.btn_back.Size = new System.Drawing.Size(109, 45);
             this.btn_back.TabIndex = 14;
             this.btn_back.Text = "BACK";
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // btn_del
             // 
@@ -321,6 +322,7 @@
             this.Controls.Add(this.txt_med_name);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MedicineForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MedicineForm";
             this.Load += new System.EventHandler(this.MedicineForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MedicineDataGridView)).EndInit();

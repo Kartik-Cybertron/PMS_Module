@@ -19,6 +19,30 @@ namespace PMS_Module2
             InitializeComponent();
         }
 
+        public void populate_comboBox()
+        {
+            string sql = "select Comp_name from cmpny_Table";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader dr;
+
+            try
+            {
+                con.Open();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Comp_name", typeof(string));
+                dr = cmd.ExecuteReader();
+                dt.Load(dr);
+                company_cmbx.ValueMember = "Comp_name";
+                company_cmbx.DataSource = dt;
+                con.Close();
+            }
+            catch
+            {
+
+            }
+
+        }
+
         public void populate()
         {
             con.Open();
@@ -35,6 +59,7 @@ namespace PMS_Module2
         private void MedicineForm_Load(object sender, EventArgs e)
         {
             populate();
+            populate_comboBox();
         }
 
         private void txt_qty_OnValueChanged(object sender, EventArgs e)
@@ -65,6 +90,7 @@ namespace PMS_Module2
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Medicine added sucessfully");
                 con.Close();
+                populate();
             }
         }
 
@@ -115,6 +141,13 @@ namespace PMS_Module2
                 con.Close();
                 populate();
             }
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            HomeForm form = new HomeForm();
+            form.Show();
+            this.Hide();
         }
     }
 }

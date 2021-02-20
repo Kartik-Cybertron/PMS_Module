@@ -176,6 +176,7 @@
             this.btn_back.Size = new System.Drawing.Size(109, 45);
             this.btn_back.TabIndex = 41;
             this.btn_back.Text = "BACK";
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // txt_cmpny_addr
             // 
@@ -274,6 +275,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Company";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Company";
             this.Load += new System.EventHandler(this.Company_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CompanyDataGridView)).EndInit();
